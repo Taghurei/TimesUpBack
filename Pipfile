@@ -11,7 +11,6 @@ flask-pymongo = "*"
 flask-cors = "*"
 gunicorn = "*"
 dnspython = "*"
-s3connection = "*"
 
 [requires]
 python_version = "3.7"
