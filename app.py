@@ -3,6 +3,8 @@ from routes.games import games
 from routes.players import players
 from flask_pymongo import PyMongo
 from flask_cors import CORS
+import os
+
 user = os.environ['USER']
 password = os.environ['PASSWORD']
 
