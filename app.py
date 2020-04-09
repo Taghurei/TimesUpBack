@@ -3,7 +3,6 @@ from routes.games import games
 from routes.players import players
 from flask_pymongo import PyMongo
 from flask_cors import CORS
-from time import sleep
 
 app = Flask(__name__)
 CORS(app)
