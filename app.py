@@ -12,4 +12,4 @@ app.config["MONGO_URI"] = "mongodb+srv://taghurei:taghurei@cluster0-wam2v.mongod
 app.mongo = PyMongo(app)
 @app.route("/")
 def home_page():
-    return "Back is Up"s
+    return "Back is Up"
