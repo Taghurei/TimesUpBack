@@ -5,30 +5,35 @@ from core.utils import slug
 class Player(Document):
     fields = Document.fields + [
         "name",
-        "score",
+        "score_total",
+        "score_round",
     ]
     export_fields= Document.export_fields +[
         "player_id",
         "name",
-        "score",
+        "score_total",
+        "score_round",
     ]
 
     editable_fields= Document.editable_fields +[
         "player_id",
         "name",
-        "score",
+        "score_total",
+        "score_round",
     ]
     def __init__(
         self,
         player_id: str = "",
         name: str = "",
-        score: int = 0,
+        score_total: int = 0,
+        score_round: int = 0,
         **kwargs
     ):
         super().__init__(**kwargs)
         self.player_id = self._id
         self.name = name
-        self.score = score
+        self.score_total = score_total
+        self.score_round = score_round
 
     @staticmethod
     def from_dict(dict_object: dict):
