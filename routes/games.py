@@ -15,6 +15,5 @@ def get_games():
 @games.route("/games", methods=["POST"])
 def put_game():
     insert_dict = request.json
-    print(insert_dict)
     inserted = insert_game(insert_dict)
     return jsonify(inserted.to_dict())
