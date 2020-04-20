@@ -7,23 +7,27 @@ class Game(Document):
         "name",
         "words",
         "teams",
+        "timer",
     ]
     export_fields= Document.export_fields +[
         "name",
         "words",
-        "teams",      
+        "teams",
+        "timer",
     ]
     def __init__(
         self,
         name: str = "",
         words: list = [],
         teams: list = [],
+        timer: int = 30,
         **kwargs
     ):
         super().__init__(**kwargs)
         self.name = name
         self.words = words
         self.teams = teams
+        self.timer = timer
 
     @staticmethod
     def from_dict(dict_object: dict):
