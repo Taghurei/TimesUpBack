@@ -1,33 +1,32 @@
 from core.model import Document
 
 
-class Game(Document):
+class Word(Document):
     fields = Document.fields + [
         "name",
         "words",
-        "teams",
-        "timer",
     ]
     export_fields= Document.export_fields +[
         "name",
         "words",
-        "teams",
-        "timer",
+    ]
+
+    editable_fields= Document.editable_fields +[
+        "name",
+        "words",
     ]
     def __init__(
         self,
+        word_id: str = "",
         name: str = "",
         words: list = [],
-        teams: list = [],
-        timer: int = 30,
         **kwargs
     ):
         super().__init__(**kwargs)
+        self.word_id = self._id
         self.name = name
         self.words = words
-        self.teams = teams
-        self.timer = timer
 
     @staticmethod
     def from_dict(dict_object: dict):
-        return Document.from_dict_class(dict_object, Game)
+        return Document.from_dict_class(dict_object, Word)

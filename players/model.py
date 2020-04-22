@@ -1,5 +1,4 @@
 from core.model import Document
-from core.utils import slug
 
 
 class Player(Document):
