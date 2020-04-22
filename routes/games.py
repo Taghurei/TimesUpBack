@@ -7,10 +7,12 @@ from games.controller import (
 
 games = Blueprint("games", __name__)
 
+
 @games.route("/games")
 def get_games():
     games = get_all_games()
     return jsonify([g.to_dict() for g in games])
+
 
 @games.route("/games", methods=["POST"])
 def put_game():

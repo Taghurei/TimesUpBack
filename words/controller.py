@@ -1,9 +1,11 @@
 from words.manager import WordManager
 from words.model import Word
 
+
 def get_all_words():
     words = WordManager().get_all()
     return words
+
 
 def update_word(word_id: str, inputs: dict):
     word_manager = WordManager()
@@ -12,6 +14,7 @@ def update_word(word_id: str, inputs: dict):
 
     word_manager.update_one(word_to_update)
     return word_to_update
+
 
 def insert_word(inputs: dict):
     word_manager = WordManager()

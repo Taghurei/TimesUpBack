@@ -1,10 +1,9 @@
 from flask import Blueprint, jsonify, request
 
-from words.controller import (
-    get_all_words,
-)
+from words.controller import get_all_words
 
 words = Blueprint("words", __name__)
+
 
 @words.route("/words")
 def get_words():

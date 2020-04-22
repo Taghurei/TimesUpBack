@@ -7,19 +7,20 @@ class Player(Document):
         "score_total",
         "score_round",
     ]
-    export_fields= Document.export_fields +[
+    export_fields = Document.export_fields + [
         "player_id",
         "name",
         "score_total",
         "score_round",
     ]
 
-    editable_fields= Document.editable_fields +[
+    editable_fields = Document.editable_fields + [
         "player_id",
         "name",
         "score_total",
         "score_round",
     ]
+
     def __init__(
         self,
         player_id: str = "",

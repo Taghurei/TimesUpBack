@@ -6,22 +6,17 @@ class Word(Document):
         "name",
         "words",
     ]
-    export_fields= Document.export_fields +[
+    export_fields = Document.export_fields + [
         "name",
         "words",
     ]
 
-    editable_fields= Document.editable_fields +[
+    editable_fields = Document.editable_fields + [
         "name",
         "words",
     ]
-    def __init__(
-        self,
-        word_id: str = "",
-        name: str = "",
-        words: list = [],
-        **kwargs
-    ):
+
+    def __init__(self, word_id: str = "", name: str = "", words: list = [], **kwargs):
         super().__init__(**kwargs)
         self.word_id = self._id
         self.name = name

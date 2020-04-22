@@ -6,15 +6,21 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 import os
 
-USER = os.environ['USER']
-PASSWORD = os.environ['PASSWORD']
+USER = os.environ["USER"]
+PASSWORD = os.environ["PASSWORD"]
 app = Flask(__name__)
 CORS(app)
 app.register_blueprint(games)
 app.register_blueprint(players)
 app.register_blueprint(words)
-app.config["MONGO_URI"] = "mongodb+srv://{}:{}@cluster0-wam2v.mongodb.net/test?retryWrites=true&w=majority".format(USER,PASSWORD)
+app.config[
+    "MONGO_URI"
+] = "mongodb+srv://{}:{}@cluster0-wam2v.mongodb.net/test?retryWrites=true&w=majority".format(
+    USER, PASSWORD
+)
 app.mongo = PyMongo(app)
+
+
 @app.route("/")
 def home_page():
     return "Back is Up"

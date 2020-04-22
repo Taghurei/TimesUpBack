@@ -1,9 +1,11 @@
 from players.manager import PlayerManager
 from players.model import Player
 
+
 def get_all_players():
     players = PlayerManager().get_all()
     return players
+
 
 def update_player(player_id: str, inputs: dict):
     player_manager = PlayerManager()
@@ -12,6 +14,7 @@ def update_player(player_id: str, inputs: dict):
 
     player_manager.update_one(player_to_update)
     return player_to_update
+
 
 def insert_player(inputs: dict):
     player_manager = PlayerManager()

@@ -1,6 +1,7 @@
 import time
 from uuid import uuid4
 
+
 class Document:
     fields = [
         "_id",
@@ -8,8 +9,7 @@ class Document:
         "updated_at",
     ]
 
-    export_fields = [
-    ]
+    export_fields = []
 
     editable_fields = []
 
@@ -17,9 +17,12 @@ class Document:
         self, _id: str = None, created_at: int = None, updated_at: int = None,
     ):
         self._id = _id if (_id and isinstance(_id, str)) else str(uuid4())
-        self.created_at = created_at if isinstance(created_at, int) else int(time.time())
-        self.updated_at = updated_at if isinstance(updated_at, int) else int(time.time())
-
+        self.created_at = (
+            created_at if isinstance(created_at, int) else int(time.time())
+        )
+        self.updated_at = (
+            updated_at if isinstance(updated_at, int) else int(time.time())
+        )
 
     def to_dict(self):
         return {key: getattr(self, key) for key in self.export_fields}
@@ -35,7 +38,6 @@ class Document:
         for key in inputs_filtered:
             setattr(self, key, inputs_filtered[key])
         setattr(self, "updated_at", int(time.time()))
-
 
     @staticmethod
     def from_dict(dict_object: dict):

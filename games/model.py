@@ -8,12 +8,13 @@ class Game(Document):
         "teams",
         "timer",
     ]
-    export_fields= Document.export_fields +[
+    export_fields = Document.export_fields + [
         "name",
         "words",
         "teams",
         "timer",
     ]
+
     def __init__(
         self,
         name: str = "",

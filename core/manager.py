@@ -1,4 +1,4 @@
-from flask import current_app,json
+from flask import current_app, json
 
 
 class MongoManager:

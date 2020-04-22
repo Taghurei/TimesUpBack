@@ -1,9 +1,11 @@
 from games.manager import GameManager
 from games.model import Game
 
+
 def get_all_games():
     games = GameManager().get_all()
     return games
+
 
 def insert_game(inputs: dict):
     game_manager = GameManager()
