@@ -42,6 +42,18 @@ class TimesUpTypeException(TimesUpException):
     def __str__(self):
         return self.internal_message
 
+class TimesUpUnexpectedNegativeValue(TimesUpException):
+    def __init__(self, error_code: int, incorrect_input: str):
+        self.error_code = error_code
+        self.internal_message = (
+            "TimesUpUnexpectedNegativeValue: the following input has a negative value : "
+            + incorrect_input
+        )
+        self.external_message = "Unknown Error"
+        self.status_code = 500
+
+    def __str__(self):
+        return self.internal_message
 
 class TimesUpNotUniqueException(TimesUpException):
     def __init__(self, error_code: int):
