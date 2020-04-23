@@ -44,19 +44,20 @@ class Game(Document):
             raise TimesUpTypeException(error_code=2, incorrect_input="name")
 
         if self.name == "" or self.name is None:
-            raise TimesUpEmptyFieldException(error_code=3, incorrect_input="name")
+            raise TimesUpEmptyFieldException(error_code=3, blank_field="name")
 
         if not isinstance(self.words, list):
             raise TimesUpTypeException(error_code=4, incorrect_input="words")
 
         if len(self.words) < 1:
-            raise TimesUpEmptyFieldException(error_code=5, incorrect_input="words")
+            raise TimesUpEmptyFieldException(error_code=5, blank_field="words")
 
         if not isinstance(self.teams, dict):
             raise TimesUpTypeException(error_code=6, incorrect_input="teams")
 
-        if not isinstance(self.teams["team1"], list) or (
+        if not "team1" in self.teams or not "team2" in self.teams or (
             not isinstance(self.teams["team1"], list)
+            or not isinstance(self.teams["team2"], list)
             or len(self.teams["team1"]) < 1
             or len(self.teams["team2"]) < 1
             or len(self.teams) != 2

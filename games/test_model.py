@@ -3,7 +3,7 @@ import time
 import pytest
 
 from games.model import Game
-from games.test_model_data import correct_games_data
+from games.test_model_data import correct_games_data, incorrect_games_data
 
 
 def get_game(test_input):
@@ -30,3 +30,8 @@ class TestInit:
         assert game.words == expected["words"]
         assert game.teams == expected["teams"]
         assert game.timer == expected["timer"]
+
+    @pytest.mark.parametrize("test_input,error_raised", incorrect_games_data)
+    def test_error(self, test_input, error_raised):
+        with pytest.raises(error_raised):
+            game = get_game(test_input)

@@ -1,4 +1,6 @@
 from core.exceptions import TimesUpException
+
+
 class TimesUpTeamsException(TimesUpException):
     def __init__(self, error_code: int = 1):
         error_code = 1
@@ -10,5 +12,3 @@ class TimesUpTeamsException(TimesUpException):
 
     def __str__(self):
         return self.internal_message
-
- 

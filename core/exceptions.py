@@ -6,7 +6,7 @@ class TimesUpException(Exception):
 
 
 class TimesUpDateException(TimesUpException):
-    def __init__(self, error_code: int = 1):
+    def __init__(self):
         error_code = 1
         external_message = "Unknown Error"
         internal_message = "Dates Exception: Creation date is after update date"
