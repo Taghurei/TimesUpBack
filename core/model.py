@@ -1,7 +1,7 @@
 import time
 from uuid import uuid4
 
-
+from core.exceptions import TimesUpDateException
 class Document:
     fields = [
         "_id",
@@ -23,6 +23,7 @@ class Document:
         self.updated_at = (
             updated_at if isinstance(updated_at, int) else int(time.time())
         )
+        Document.verify(self)
 
     def to_dict(self):
         return {key: getattr(self, key) for key in self.export_fields}
@@ -38,6 +39,12 @@ class Document:
         for key in inputs_filtered:
             setattr(self, key, inputs_filtered[key])
         setattr(self, "updated_at", int(time.time()))
+
+        self.verify()
+
+    def verify(self):
+        if self.updated_at < self.created_at:
+            raise TimesUpDateException
 
     @staticmethod
     def from_dict(dict_object: dict):
