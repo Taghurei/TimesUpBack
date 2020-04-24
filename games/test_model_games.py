@@ -3,7 +3,7 @@ import time
 import pytest
 
 from games.model import Game
-from games.test_model_data import correct_games_data, incorrect_games_data
+from games.test_model_data_games import correct_games_data, incorrect_games_data
 
 
 def get_game(test_input):

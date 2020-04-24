@@ -117,7 +117,7 @@ incorrect_games_data = [
         TimesUpEmptyFieldException,
     ),
     (
-        # words must be a liste
+        # words must be a list
         {
             "_id": "game_id",
             "name": "game_name",
