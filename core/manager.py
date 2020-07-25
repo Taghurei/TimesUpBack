@@ -11,6 +11,9 @@ class MongoManager:
     def get(self, _id):
         return self.collection.find_one({"_id": _id})
 
+    def get_by_name(self, name):
+        return self.collection.find_one({"name": name})
+
     def get_query(self, query):
         return self.collection.find(query)
 
