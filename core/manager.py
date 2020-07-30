@@ -28,3 +28,6 @@ class MongoManager:
 
     def remove_one(self, delete_id):
         return self.collection.remove({"_id": delete_id})
+
+    def update_one_by_name(self, name, update_dict):
+        return self.collection.update({"name": name}, {"$set": update_dict})

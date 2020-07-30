@@ -23,3 +23,6 @@ class WordManager(MongoManager):
 
     def remove_one(self, word):
         return super().remove_one(word.word_id)
+
+    def update_one_by_name(self, game_name, game):
+        return super().update_one_by_name(game_name, {"words": game.words })
