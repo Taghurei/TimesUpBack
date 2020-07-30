@@ -15,8 +15,8 @@ class WordManager(MongoManager):
     def get_by_name(self, word_name):
         return Word.from_dict(super().get_by_name(word_name))
 
-    def update_one(self, word):
-        return super().update_one(word.word_id, word.to_insert_dict())
+    def update_one(self,id, word):
+        return super().update_one(id, word.to_insert_dict())
 
     def insert_one(self, word):
         return super().insert_one(word.to_insert_dict())
