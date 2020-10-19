@@ -10,9 +10,9 @@ words = Blueprint("words", __name__)
 
 
 @words.route("/words")
-def get_words():
-    words = get_all_words()
-    return jsonify([g.to_dict() for g in words])
+def get_words_name():
+    words_name = get_all_words_dictionaries_name()
+    return jsonify(words_name)
 
 
 @words.route("/words/<word_name>")
