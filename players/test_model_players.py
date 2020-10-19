@@ -3,7 +3,10 @@ import time
 import pytest
 
 from players.model import Player
-from players.test_model_data_players import correct_players_data, incorrect_players_data
+from players.test_model_data_players import (
+    correct_players_data,
+    incorrect_players_data,
+)
 
 
 def get_player(test_input):

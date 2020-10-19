@@ -11,6 +11,3 @@ class GameManager(MongoManager):
 
     def insert_one(self, game):
         return super().insert_one(game.to_insert_dict())
-
-    def insert_one_by_name(self, game_name, game):
-        return super().update_one_by_name(game_name, game)

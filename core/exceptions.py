@@ -42,6 +42,7 @@ class TimesUpTypeException(TimesUpException):
     def __str__(self):
         return self.internal_message
 
+
 class TimesUpUnexpectedNegativeValue(TimesUpException):
     def __init__(self, error_code: int, incorrect_input: str):
         self.error_code = error_code
@@ -54,6 +55,7 @@ class TimesUpUnexpectedNegativeValue(TimesUpException):
 
     def __str__(self):
         return self.internal_message
+
 
 class TimesUpNotUniqueException(TimesUpException):
     def __init__(self, error_code: int):

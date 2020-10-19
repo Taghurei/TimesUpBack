@@ -55,12 +55,16 @@ class Game(Document):
         if not isinstance(self.teams, dict):
             raise TimesUpTypeException(error_code=6, incorrect_input="teams")
 
-        if not "team1" in self.teams or not "team2" in self.teams or (
-            not isinstance(self.teams["team1"], list)
-            or not isinstance(self.teams["team2"], list)
-            or len(self.teams["team1"]) < 1
-            or len(self.teams["team2"]) < 1
-            or len(self.teams) != 2
+        if (
+            not "team1" in self.teams
+            or not "team2" in self.teams
+            or (
+                not isinstance(self.teams["team1"], list)
+                or not isinstance(self.teams["team2"], list)
+                or len(self.teams["team1"]) < 1
+                or len(self.teams["team2"]) < 1
+                or len(self.teams) != 2
+            )
         ):
             raise TimesUpTeamsException(error_code=7)
 

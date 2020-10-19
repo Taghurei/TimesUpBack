@@ -21,6 +21,7 @@ def put_game():
     inserted = insert_game(insert_dict)
     return jsonify(inserted.to_dict())
 
+
 @games.route("/games/populate")
 def pop_games():
     games = populate_games()

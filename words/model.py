@@ -5,6 +5,7 @@ from core.exceptions import (
     TimesUpTypeException,
 )
 
+
 class Word(Document):
     fields = Document.fields + [
         "name",
@@ -40,7 +41,7 @@ class Word(Document):
         if not isinstance(self.words, list):
             raise TimesUpTypeException(error_code=21, incorrect_input="words")
 
-        if len(self.words) < 1 :
+        if len(self.words) < 1:
             raise TimesUpEmptyFieldException(error_code=22, blank_field="words")
 
     @staticmethod
