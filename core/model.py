@@ -2,6 +2,8 @@ import time
 from uuid import uuid4
 
 from core.exceptions import TimesUpDateException
+
+
 class Document:
     fields = [
         "_id",
