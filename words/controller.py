@@ -2,12 +2,13 @@ from words.manager import WordManager
 from words.model import Word
 
 
-def get_all_words_dictionaries_name():
-    words_dictionaries = WordManager().get_all()
-    words_dictionaries_name = [
-        word_dictionary.to_dict()["name"] for word_dictionary in words_dictionaries
-    ]
-    return words_dictionaries_name
+def get_all_words_dictionaries():
+    words_lists = WordManager().get_all()
+    words_dictionaries = {} 
+    for word_list in words_lists:
+        words_dictionary = word_list.to_dict()
+        words_dictionaries[words_dictionary['name']] = words_dictionary['words'] 
+    return words_dictionaries
 
 
 def get_one_word(word_name):

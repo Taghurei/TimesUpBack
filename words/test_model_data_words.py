@@ -94,18 +94,6 @@ incorrect_words_data = [
         TimesUpTypeException,
     ),
     (
-        # words can't be empty
-        {
-            "_id": "word_id",
-            "word_id": "word_id",
-            "name": "name",
-            "words": [],
-            "created_at": 0,
-            "updated_at": 0,
-        },
-        TimesUpEmptyFieldException,
-    ),
-    (
         # words must be a list
         {
             "_id": "word_id",

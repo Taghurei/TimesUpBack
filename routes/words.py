@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 
 from words.controller import (
-    get_all_words_dictionaries_name,
+    get_all_words_dictionaries,
     get_one_word,
     update_word,
 )
@@ -9,10 +9,10 @@ from words.controller import (
 words = Blueprint("words", __name__)
 
 
-@words.route("/words")
+@words.route("/words/")
 def get_words_name():
-    words_name = get_all_words_dictionaries_name()
-    return jsonify(words_name)
+    all_words = get_all_words_dictionaries()
+    return jsonify(all_words)
 
 
 @words.route("/words/<word_name>")
