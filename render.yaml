@@ -1,0 +1,22 @@
+# Deploy on Render: New + -> Blueprint -> pick this repo and branch.
+# The two secrets are asked for in the dashboard, never committed.
+services:
+  - type: web
+    name: timesup-back
+    runtime: python
+    plan: free
+    branch: feat/optional-login
+    buildCommand: pip install -r requirements.txt
+    # gunicorn binds 0.0.0.0:$PORT on its own when PORT is set, which Render does
+    startCommand: gunicorn app:app
+    healthCheckPath: /
+    envVars:
+      # takes precedence over .python-version, which holds a bare "3.10"
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      # the Atlas connection string, with the /test database name in it
+      - key: MONGO_URI
+        sync: false
+      # signs the login tokens; python3 -c "import secrets; print(secrets.token_urlsafe(32))"
+      - key: TIMESUP_SECRET
+        sync: false
