@@ -12,6 +12,8 @@ flask-pymongo = "*"
 flask-cors = "*"
 gunicorn = "*"
 dnspython = "*"
+werkzeug = "*"
+itsdangerous = "*"
 
 [requires]
 python_version = "3.7"

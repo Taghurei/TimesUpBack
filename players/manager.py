@@ -10,7 +10,8 @@ class PlayerManager(MongoManager):
         return [Player.from_dict(x) for x in super().get_all()]
 
     def get(self, player_id):
-        return Player.from_dict(super().get(player_id))
+        player = super().get(player_id)
+        return Player.from_dict(player) if player else None
 
     def update_one(self, player):
         return super().update_one(player.player_id, player.to_insert_dict())

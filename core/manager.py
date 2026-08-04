@@ -17,17 +17,20 @@ class MongoManager:
     def get_query(self, query):
         return self.collection.find(query)
 
+    def get_one(self, query, sort=None):
+        return self.collection.find_one(query, sort=sort)
+
     def count(self, query):
         return self.collection.count_documents(query)
 
     def update_one(self, _id, update_dict):
-        return self.collection.update({"_id": _id}, {"$set": update_dict})
+        return self.collection.update_one({"_id": _id}, {"$set": update_dict})
 
     def insert_one(self, insert_dict):
-        return self.collection.insert(insert_dict)
+        return self.collection.insert_one(insert_dict)
 
     def remove_one(self, delete_id):
-        return self.collection.remove({"_id": delete_id})
+        return self.collection.remove_one({"_id": delete_id})
 
     def update_one_by_name(self, name, update_dict):
-        return self.collection.update({"name": name}, {"$set": update_dict})
+        return self.collection.update_one({"name": name}, {"$set": update_dict})

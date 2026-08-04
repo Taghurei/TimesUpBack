@@ -1,2 +1,7 @@
 Flask
+Flask-PyMongo
+Flask-Cors
 Gunicorn
+dnspython
+Werkzeug
+itsdangerous
