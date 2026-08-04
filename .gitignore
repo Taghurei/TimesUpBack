@@ -75,6 +75,8 @@ target/
 
 # pyenv
 .python-version
+# ... except ours: the builder reads it to pick the interpreter, so it ships
+!.python-version
 
 # celery beat schedule file
 celerybeat-schedule
